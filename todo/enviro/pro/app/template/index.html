@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="container">
+        
+        <div>
+            <h1>tasks</h1>
+            <a href="{% url 'add' %}"><button  class="btn btn-success rounded" style="float:right; margin: 10px;" id="new3">New Task</button></a>
+            <!-- DATE: <span class="justify-content-end"><input type="date" placeholder="input todays date"></span></div> -->
+        
+        <table class="table table-bordered table-stripped " style="margin: top 10px;" id="customers" border="1">
+            <thead class=" table-dark">
+                <th>Id</th>
+                <th>Task Name</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Description</th>
+                <th colspan="2" id="mid">Action</th>
+            </thead>          
+            {%for x in mem%}
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.taskname}}</td>
+                <td>{{x.starttime}}</td>
+                <td>{{x.endtime}}</td>
+                <td>{{x.description}}</td>
+                <td>
+                    <a href="update/{{x.id}}"><button class="btn btn-primary rounded" id="up">Update</button> </a> 
+                </td>
+                <td>
+                <a href="delete/{{x.id}}"><button class="btn btn-danger rounded" id="del">Delete</button></a>
+                </td>
+                
+            </tr>
+            {%endfor%}
+        </table>
+        <br><br>
+       
+    </div> 
+</body>
+</html>
